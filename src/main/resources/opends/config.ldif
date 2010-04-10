@@ -327,37 +327,6 @@ objectClass: top
 objectClass: ds-cfg-branch
 cn: Key Manager Providers
 
-dn: cn=JKS,cn=Key Manager Providers,cn=config
-objectClass: top
-objectClass: ds-cfg-key-manager-provider
-objectClass: ds-cfg-file-based-key-manager-provider
-cn: JKS
-ds-cfg-java-class: org.opends.server.extensions.FileBasedKeyManagerProvider
-ds-cfg-enabled: false
-ds-cfg-key-store-type: JKS
-ds-cfg-key-store-file: config/keystore
-ds-cfg-key-store-pin-file: config/keystore.pin
-
-dn: cn=PKCS12,cn=Key Manager Providers,cn=config
-objectClass: top
-objectClass: ds-cfg-key-manager-provider
-objectClass: ds-cfg-file-based-key-manager-provider
-cn: PKCS12
-ds-cfg-java-class: org.opends.server.extensions.FileBasedKeyManagerProvider
-ds-cfg-enabled: false
-ds-cfg-key-store-type: PKCS12
-ds-cfg-key-store-file: config/keystore.p12
-ds-cfg-key-store-pin-file: config/keystore.pin
-
-dn: cn=PKCS11,cn=Key Manager Providers,cn=config
-objectClass: top
-objectClass: ds-cfg-key-manager-provider
-objectClass: ds-cfg-pkcs11-key-manager-provider
-cn: PKCS11
-ds-cfg-java-class: org.opends.server.extensions.PKCS11KeyManagerProvider
-ds-cfg-enabled: false
-ds-cfg-key-store-pin-file: config/keystore.pin
-
 dn: cn=Loggers,cn=config
 objectClass: top
 objectClass: ds-cfg-branch
