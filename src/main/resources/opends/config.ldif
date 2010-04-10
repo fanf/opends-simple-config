@@ -186,43 +186,6 @@ objectClass: top
 objectClass: ds-cfg-branch
 cn: Certificate Mappers
 
-dn: cn=Subject Equals DN,cn=Certificate Mappers,cn=config
-objectClass: top
-objectClass: ds-cfg-certificate-mapper
-objectClass: ds-cfg-subject-equals-dn-certificate-mapper
-cn: Subject Equals DN
-ds-cfg-java-class: org.opends.server.extensions.SubjectEqualsDNCertificateMapper
-ds-cfg-enabled: false
-
-dn: cn=Subject DN to User Attribute,cn=Certificate Mappers,cn=config
-objectClass: top
-objectClass: ds-cfg-certificate-mapper
-objectClass: ds-cfg-subject-dn-to-user-attribute-certificate-mapper
-cn: Subject DN to User Attribute
-ds-cfg-java-class: org.opends.server.extensions.SubjectDNToUserAttributeCertificateMapper
-ds-cfg-enabled: false
-ds-cfg-subject-attribute: ds-certificate-subject-dn
-
-dn: cn=Subject Attribute to User Attribute,cn=Certificate Mappers,cn=config
-objectClass: top
-objectClass: ds-cfg-certificate-mapper
-objectClass: ds-cfg-subject-attribute-to-user-attribute-certificate-mapper
-cn: Subject Attribute to User Attribute
-ds-cfg-java-class: org.opends.server.extensions.SubjectAttributeToUserAttributeCertificateMapper
-ds-cfg-enabled: false
-ds-cfg-subject-attribute-mapping: cn:cn
-ds-cfg-subject-attribute-mapping: e:mail
-
-dn: cn=Fingerprint Mapper,cn=Certificate Mappers,cn=config
-objectClass: top
-objectClass: ds-cfg-certificate-mapper
-objectClass: ds-cfg-fingerprint-certificate-mapper
-cn: Fingerprint Mapper
-ds-cfg-java-class: org.opends.server.extensions.FingerprintCertificateMapper
-ds-cfg-enabled: false
-ds-cfg-fingerprint-attribute: ds-certificate-fingerprint
-ds-cfg-fingerprint-algorithm: MD5
-
 dn: cn=Connection Handlers,cn=config
 objectClass: top
 objectClass: ds-cfg-branch
