@@ -102,14 +102,6 @@ objectClass: top
 objectClass: ds-cfg-branch
 cn: Alert Handlers
 
-dn: cn=JMX Alert Handler,cn=Alert Handlers,cn=config
-objectClass: top
-objectClass: ds-cfg-alert-handler
-objectClass: ds-cfg-jmx-alert-handler
-cn: JMX Alert Handler
-ds-cfg-java-class: org.opends.server.extensions.JMXAlertHandler
-ds-cfg-enabled: false
-
 dn: cn=Backends,cn=config
 objectClass: top
 objectClass: ds-cfg-branch
