@@ -1382,19 +1382,6 @@ objectClass: top
 objectClass: ds-cfg-branch
 cn: Synchronization Providers
 
-dn: cn=Multimaster Synchronization,cn=Synchronization Providers,cn=config
-objectClass: top
-objectClass: ds-cfg-synchronization-provider
-objectClass: ds-cfg-replication-synchronization-provider
-cn: Multimaster Synchronization
-ds-cfg-enabled: false
-ds-cfg-java-class: org.opends.server.replication.plugin.MultimasterReplication
-
-dn: cn=domains,cn=Multimaster Synchronization,cn=Synchronization Providers,cn=config
-objectClass: top
-objectClass: ds-cfg-branch
-cn: domains
-
 dn: cn=Syntaxes,cn=config
 objectClass: top
 objectClass: ds-cfg-branch
