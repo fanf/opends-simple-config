@@ -96,6 +96,16 @@ objectClass: top
 objectClass: ds-cfg-branch
 cn: Backends
 
+dn: ds-cfg-backend-id=userRoot2,cn=Backends,cn=config
+objectClass: top
+objectClass: ds-cfg-backend
+objectClass: ds-cfg-memory-backend
+ds-cfg-enabled: true
+ds-cfg-java-class: org.opends.server.backends.MemoryBackend
+ds-cfg-backend-id: userRoot2
+ds-cfg-writability-mode: enabled
+ds-cfg-base-dn: dc=example,dc=com
+
 dn: ds-cfg-backend-id=userRoot,cn=Backends,cn=config
 objectClass: top
 objectClass: ds-cfg-backend
