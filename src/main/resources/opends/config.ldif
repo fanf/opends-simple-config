@@ -52,19 +52,6 @@ ds-cfg-save-config-on-successful-startup: false
 ds-cfg-etime-resolution: milliseconds
 ds-cfg-entry-cache-preload: false
 ds-cfg-max-allowed-client-connections: 0
-ds-cfg-allowed-task: org.opends.server.tasks.AddSchemaFileTask
-ds-cfg-allowed-task: org.opends.server.tasks.BackupTask
-ds-cfg-allowed-task: org.opends.server.tasks.DisconnectClientTask
-ds-cfg-allowed-task: org.opends.server.tasks.EnterLockdownModeTask
-ds-cfg-allowed-task: org.opends.server.tasks.ExportTask
-ds-cfg-allowed-task: org.opends.server.tasks.ImportTask
-ds-cfg-allowed-task: org.opends.server.tasks.InitializeTargetTask
-ds-cfg-allowed-task: org.opends.server.tasks.InitializeTask
-ds-cfg-allowed-task: org.opends.server.tasks.SetGenerationIdTask
-ds-cfg-allowed-task: org.opends.server.tasks.LeaveLockdownModeTask
-ds-cfg-allowed-task: org.opends.server.tasks.RebuildTask
-ds-cfg-allowed-task: org.opends.server.tasks.RestoreTask
-ds-cfg-allowed-task: org.opends.server.tasks.ShutdownTask
 
 dn: cn=Access Control Handler,cn=config
 objectClass: top
