@@ -297,30 +297,6 @@ objectClass: top
 objectClass: ds-cfg-branch
 cn: Group Implementations
 
-dn: cn=Dynamic,cn=Group Implementations,cn=config
-objectClass: top
-objectClass: ds-cfg-group-implementation
-objectClass: ds-cfg-dynamic-group-implementation
-cn: Dynamic
-ds-cfg-java-class: org.opends.server.extensions.DynamicGroup
-ds-cfg-enabled: false
-
-dn: cn=Static,cn=Group Implementations,cn=config
-objectClass: top
-objectClass: ds-cfg-group-implementation
-objectClass: ds-cfg-static-group-implementation
-cn: Static
-ds-cfg-java-class: org.opends.server.extensions.StaticGroup
-ds-cfg-enabled: true
-
-dn: cn=Virtual Static,cn=Group Implementations,cn=config
-objectClass: top
-objectClass: ds-cfg-group-implementation
-objectClass: ds-cfg-virtual-static-group-implementation
-cn: Virtual Static
-ds-cfg-java-class: org.opends.server.extensions.VirtualStaticGroup
-ds-cfg-enabled: false
-
 dn: cn=Identity Mappers,cn=config
 objectClass: top
 objectClass: ds-cfg-branch
