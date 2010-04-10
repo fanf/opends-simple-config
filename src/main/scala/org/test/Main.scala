@@ -7,15 +7,16 @@ import org.opends.server.types.DirectoryEnvironmentConfig
 import org.opends.server.util.EmbeddedUtils
 import org.opends.messages.Message
 import org.apache.commons.io.IOUtils.copy
-
+import org.joda.time.{DateTime,Duration}
 
 case class DirTree(root:File,config:File,schema:File,lock:File)
 
 object Main {
 
   val rootDirPath = "/tmp/opends/"
-  val configPath = "config.ldif"
-  val schemaPaths = 
+  val masterConfig = "config.ldif"
+  val configNames = "admin-backend.ldif" :: Nil
+  val schemaNames = 
     "00-core.ldif" ::
     "01-pwpolicy.ldif" ::
     "02-config.ldif" ::
@@ -44,13 +45,19 @@ object Main {
     config.setMaintainConfigArchive(false)
     
     println("Hello world")
-
+    val startTime = new DateTime
     
     EmbeddedUtils.startServer(config)
+    
+    println("post startServer")
     if(EmbeddedUtils.isRunning) {
       println("Started")
       EmbeddedUtils.stopServer(this.getClass.getName, Message.fromObject("Stoping server"))
+      if(EmbeddedUtils.isRunning) println("Not stopped correctly")
+      else println("Stopped")
     } else println("Not started correctly")
+    
+    println("Elapsed: " + (new Duration(startTime,new DateTime)))
   }
   
   private def initDirTree : DirTree = {
@@ -74,28 +81,28 @@ object Main {
     val rootDir = new File(rootDirPath)
     val lockDir = new File(rootDir,lockPath)
     val schemaDir = new File(rootDir,schemaPath)
-    val config = new File(rootDir, configPath)
+    val masterConfigFile = new File(rootDir,masterConfig)
     
     //lock directory
     lockDir.mkdirs
     //config path
-    withFOS(config) { fos =>
-      copy(this.getClass.getClassLoader.getResourceAsStream("opends/" + configPath), fos)
+    for(name <- masterConfig :: configNames) {
+      withFOS(new File(rootDir,name)) { fos =>
+        copy(this.getClass.getClassLoader.getResourceAsStream("opends/" + name), fos)
+      }
     }
     
     //schemas
     schemaDir.mkdirs
-    for {
-      path <- schemaPaths
-    } {
-      withFOS(new File(schemaDir, path)) { fos =>
-        copy(this.getClass.getClassLoader.getResourceAsStream("opends/schema/" + path), fos)
+    for(name <- schemaNames) {
+      withFOS(new File(schemaDir, name)) { fos =>
+        copy(this.getClass.getClassLoader.getResourceAsStream("opends/schema/" + name), fos)
       }
     }
     
     new File(rootDir, "logs").mkdir
     new File(rootDir, "config").mkdir
     
-    DirTree(rootDir,config, schemaDir,lockDir)
+    DirTree(rootDir,masterConfigFile, schemaDir,lockDir)
   }
 }
