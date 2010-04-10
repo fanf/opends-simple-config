@@ -1,0 +1,67 @@
+Embedded config of OpenDS
+=========================
+
+author: Francois Armand
+license: Apache Software License v2.0
+
+What's about ?
+==============
+This project provides a strip down version of the OpenDS configuration file
+to embed it in your application. There is also a demo program which show
+what file are required, and how to start/stop the server from code.
+
+
+Credits
+=======
+
+OpenDS : http://www.opends.org/
+I use OpenDS (v2.2.0) : http://www.opends.org/promoted-builds/2.2.0/
+Most of that project are direct transcription of instructions found
+in OpenDS wiki:
+- Creating an OpenDS Instance for Embedded Use :
+  https://www.opends.org/wiki/page/CreatingAnOpenDSInstanceForEmbeddedUse
+- Controlling OpenDS from Another Application
+  https://www.opends.org/wiki/page/ControllingOpenDSFromAnotherApplication
+
+
+Goal
+====
+
+The goal was to remove the most things from the OpenDS configuration file, 
+to use OpenDS for testing or such goal. 
+
+Most of the useful administration things, what make OpenDS 
+an Entreprise Level directory server and not just a
+cool open source project, are removed here.
+
+I also removed the BerkeleyDB back-end to use an in memory one 
+and being able to remove the je.jar dependency. If you need a 
+persistent backend, revert commit 16b8284b4e2c453cd6fd1d30f9f2dda8259ff4fe
+
+Demo programm
+=============
+
+The demo programm is here to show what is required to launch
+OpenDS: what directory to create, what file to copy.
+It is in Scala, but the java version will be almost the same.
+
+As I use Maven for almost all my dependency management, the
+demo use maven for building/testing. 
+
+To test the program, build it:
+
+% mvn assembly:assembly
+% java -cp target/embedded-opends-0.0.1-SNAPSHOT-jar-with-dependencies.jar org.test.Main
+
+Installing needed jars in your local maven repos
+================================================
+
+AFAIK, OpenDS is not available in a Maven repository since 
+version 1.0.0, so you will have to install at least 3 required
+dependencies: OpenDS, Quicksetup, and BerkeleyDB.
+For that, download the zip distribution,
+unzip it, go to OenDS-XXX directory, and then:
+
+% mvn install:install-file -Dpackaging=jar -DgeneratePom=true -Dfile=lib/je.jar         -DgroupId=com.sleepycat -DartifactId=je         -Dversion=3.3.87 
+% mvn install:install-file -Dpackaging=jar -DgeneratePom=true -Dfile=lib/quicksetup.jar -DgroupId=org.opends    -DartifactId=quicksetup -Dversion=2.2.0 
+% mvn install:install-file -Dpackaging=jar -DgeneratePom=true -Dfile=lib/OpenDS.jar     -DgroupId=org.opends    -DartifactId=opends     -Dversion=2.2.0 
