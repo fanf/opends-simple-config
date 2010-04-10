@@ -1118,54 +1118,6 @@ objectClass: top
 objectClass: ds-cfg-branch
 cn: Monitor Providers
 
-dn: cn=Client Connections,cn=Monitor Providers,cn=config
-objectClass: top
-objectClass: ds-cfg-monitor-provider
-objectClass: ds-cfg-client-connection-monitor-provider
-cn: Client Connections
-ds-cfg-java-class: org.opends.server.monitors.ClientConnectionMonitorProvider
-ds-cfg-enabled: false
-
-dn: cn=Entry Caches,cn=Monitor Providers,cn=config
-objectClass: top
-objectClass: ds-cfg-monitor-provider
-objectClass: ds-cfg-entry-cache-monitor-provider
-cn: Entry Caches
-ds-cfg-java-class: org.opends.server.monitors.EntryCacheMonitorProvider
-ds-cfg-enabled: false
-
-dn: cn=JVM Memory Usage,cn=Monitor Providers,cn=config
-objectClass: top
-objectClass: ds-cfg-monitor-provider
-objectClass: ds-cfg-memory-usage-monitor-provider
-cn: JVM Memory Usage
-ds-cfg-java-class: org.opends.server.monitors.MemoryUsageMonitorProvider
-ds-cfg-enabled: false
-
-dn: cn=JVM Stack Trace,cn=Monitor Providers,cn=config
-objectClass: top
-objectClass: ds-cfg-monitor-provider
-objectClass: ds-cfg-stack-trace-monitor-provider
-cn: JVM Stack Trace
-ds-cfg-java-class: org.opends.server.monitors.StackTraceMonitorProvider
-ds-cfg-enabled: false
-
-dn: cn=System Info,cn=Monitor Providers,cn=config
-objectClass: top
-objectClass: ds-cfg-monitor-provider
-objectClass: ds-cfg-system-info-monitor-provider
-cn: System Info
-ds-cfg-java-class: org.opends.server.monitors.SystemInfoMonitorProvider
-ds-cfg-enabled: false
-
-dn: cn=Version,cn=Monitor Providers,cn=config
-objectClass: top
-objectClass: ds-cfg-monitor-provider
-objectClass: ds-cfg-version-monitor-provider
-cn: Version
-ds-cfg-java-class: org.opends.server.monitors.VersionMonitorProvider
-ds-cfg-enabled: false
-
 dn: cn=Password Generators,cn=config
 objectClass: top
 objectClass: ds-cfg-branch
