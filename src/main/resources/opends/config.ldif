@@ -1377,62 +1377,6 @@ objectClass: top
 objectClass: ds-cfg-branch
 cn: SASL Mechanisms
 
-dn: cn=ANONYMOUS,cn=SASL Mechanisms,cn=config
-objectClass: top
-objectClass: ds-cfg-sasl-mechanism-handler
-objectClass: ds-cfg-anonymous-sasl-mechanism-handler
-cn: ANONYMOUS
-ds-cfg-java-class: org.opends.server.extensions.AnonymousSASLMechanismHandler
-ds-cfg-enabled: false
-
-dn: cn=CRAM-MD5,cn=SASL Mechanisms,cn=config
-objectClass: top
-objectClass: ds-cfg-sasl-mechanism-handler
-objectClass: ds-cfg-cram-md5-sasl-mechanism-handler
-cn: CRAM-MD5
-ds-cfg-java-class: org.opends.server.extensions.CRAMMD5SASLMechanismHandler
-ds-cfg-enabled: false
-ds-cfg-identity-mapper: cn=Exact Match,cn=Identity Mappers,cn=config
-
-dn: cn=DIGEST-MD5,cn=SASL Mechanisms,cn=config
-objectClass: top
-objectClass: ds-cfg-sasl-mechanism-handler
-objectClass: ds-cfg-digest-md5-sasl-mechanism-handler
-cn: DIGEST-MD5
-ds-cfg-java-class: org.opends.server.extensions.DigestMD5SASLMechanismHandler
-ds-cfg-enabled: false
-ds-cfg-identity-mapper: cn=Exact Match,cn=Identity Mappers,cn=config
-
-dn: cn=EXTERNAL,cn=SASL Mechanisms,cn=config
-objectClass: top
-objectClass: ds-cfg-sasl-mechanism-handler
-objectClass: ds-cfg-external-sasl-mechanism-handler
-cn: EXTERNAL
-ds-cfg-java-class: org.opends.server.extensions.ExternalSASLMechanismHandler
-ds-cfg-enabled: false
-ds-cfg-certificate-validation-policy: ifpresent
-ds-cfg-certificate-attribute: userCertificate
-ds-cfg-certificate-mapper: cn=Subject Equals DN,cn=Certificate Mappers,cn=config
-
-dn: cn=GSSAPI,cn=SASL Mechanisms,cn=config
-objectClass: top
-objectClass: ds-cfg-sasl-mechanism-handler
-objectClass: ds-cfg-gssapi-sasl-mechanism-handler
-cn: GSSAPI
-ds-cfg-java-class: org.opends.server.extensions.GSSAPISASLMechanismHandler
-ds-cfg-enabled: false
-ds-cfg-identity-mapper: cn=Regular Expression,cn=Identity Mappers,cn=config
-ds-cfg-keytab: /etc/krb5/krb5.keytab
-
-dn: cn=PLAIN,cn=SASL Mechanisms,cn=config
-objectClass: top
-objectClass: ds-cfg-sasl-mechanism-handler
-objectClass: ds-cfg-plain-sasl-mechanism-handler
-cn: PLAIN
-ds-cfg-java-class: org.opends.server.extensions.PlainSASLMechanismHandler
-ds-cfg-enabled: false
-ds-cfg-identity-mapper: cn=Exact Match,cn=Identity Mappers,cn=config
-
 dn: cn=Synchronization Providers,cn=config
 objectClass: top
 objectClass: ds-cfg-branch
