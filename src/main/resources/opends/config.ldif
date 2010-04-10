@@ -1734,34 +1734,6 @@ objectClass: top
 objectClass: ds-cfg-branch
 cn: Trust Manager Providers
 
-dn: cn=Blind Trust,cn=Trust Manager Providers,cn=config
-objectClass: top
-objectClass: ds-cfg-trust-manager-provider
-objectClass: ds-cfg-blind-trust-manager-provider
-cn: Blind Trust
-ds-cfg-java-class: org.opends.server.extensions.BlindTrustManagerProvider
-ds-cfg-enabled: false
-
-dn: cn=JKS,cn=Trust Manager Providers,cn=config
-objectClass: top
-objectClass: ds-cfg-trust-manager-provider
-objectClass: ds-cfg-file-based-trust-manager-provider
-cn: JKS
-ds-cfg-java-class: org.opends.server.extensions.FileBasedTrustManagerProvider
-ds-cfg-enabled: false
-ds-cfg-trust-store-type: JKS
-ds-cfg-trust-store-file: config/truststore
-
-dn: cn=PKCS12,cn=Trust Manager Providers,cn=config
-objectClass: top
-objectClass: ds-cfg-trust-manager-provider
-objectClass: ds-cfg-file-based-trust-manager-provider
-cn: PKCS12
-ds-cfg-java-class: org.opends.server.extensions.FileBasedTrustManagerProvider
-ds-cfg-enabled: false
-ds-cfg-trust-store-type: PKCS12
-ds-cfg-trust-store-file: config/truststore.p12
-
 dn: cn=Virtual Attributes,cn=config
 objectClass: top
 objectClass: ds-cfg-branch
